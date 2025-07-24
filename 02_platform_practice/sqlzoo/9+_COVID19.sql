@@ -1,5 +1,5 @@
 -- 来源：SQLZoo 9+ COVID 19
--- 技术点：
+-- 技术点：窗口函数
 
 -- 1
 SELECT name, DAY(whn), confirmed, deaths, recovered
