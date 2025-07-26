@@ -1,5 +1,5 @@
 -- 来源：SQLZoo 9 Self Join
--- 技术点：
+-- 技术点：自连接
 
 -- 1
 SELECT COUNT(id)
