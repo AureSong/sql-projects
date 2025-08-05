@@ -22,7 +22,6 @@
 
 3. **目录结构**
 
-```bash
 superstore_sql_practice/
 │
 ├── 00_orders_sample.csv              # 示例数据
