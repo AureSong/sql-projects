@@ -28,10 +28,10 @@ GROUP BY ship_mode
 ORDER BY ship_mode;
 
 -- 6. 每个 region 的销售额
-SELECT region, SUM(sales)
+SELECT region, SUM(sales) AS total_sales
 FROM orders
 GROUP BY region
-ORDER BY region;
+ORDER BY total_sales DESC;
 
 -- 7. 按 region 分组，计算总销售额和总利润
 SELECT region, SUM(sales), SUM(profit)
