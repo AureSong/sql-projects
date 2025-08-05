@@ -3,7 +3,7 @@
 -- 数据表: orders
 
 -- 1 按月统计销售额和利润额
-WITH t AS (
+WITH orders_clean AS (
     SELECT STR_TO_DATE(order_date, '%m/%d/%Y') AS order_dt,
         sales,
         profit
@@ -12,12 +12,12 @@ WITH t AS (
 SELECT DATE_FORMAT(order_dt, '%Y-%m') AS ym,
     SUM(sales) AS total_sales,
     SUM(profit) As total_profit
-FROM t
+FROM orders_clean
 GROUP BY DATE_FORMAT(order_dt, '%Y-%m')
 ORDER BY ym;
 
 -- 2 按季度统计利润率（profit ÷ sales）
-WITH t AS (
+WITH orders_clean AS (
     SELECT STR_TO_DATE(order_date, '%m/%d/%Y') AS order_dt,
         sales, 
         profit
@@ -26,7 +26,7 @@ WITH t AS (
 SELECT YEAR(order_dt) AS order_year,
     QUARTER(order_dt) AS order_quarter,
     ROUND(SUM(profit) / SUM(sales), 2) AS profit_rate
-FROM t
+FROM orders_clean
 GROUP BY YEAR(order_dt), QUARTER(order_dt)
 ORDER BY order_year, order_quarter;
 
